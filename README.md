@@ -1,33 +1,21 @@
-# A Template for Building Web Apps with Coding Agents
+# ai-context
 
-## Start a project
+Use this repository as the shared template when the owner gives you its link after discussing a project idea. Turn the decisions from that discussion into a project overview and recommend the optional coding guides that fit the project.
 
-1. Copy `AGENTS.md`, `context/`, and `skills/` to the root of your project. If a file with the same name already exists, take its instructions into account when merging the files. Use this README as a guide to the template.
-2. Fill in [project-overview.md](context/project-overview.md) with your project's goal, MVP scope, pages, domain rules, and tech stack. The shared instructions, including [coding-standards.md](context/coding-standards.md), are ready to use. The agent finds the commands for running and testing the app in your repository.
-3. Add screenshots to [context/screenshots/](context/screenshots/) as needed. For example, take a screenshot of a v0.app prototype and note in the overview which visual ideas you want to borrow. The agent uses the screenshots as a reference for layout, visual hierarchy, and overall style, then adapts those ideas to your project.
-4. Commit the setup files on `dev`. If `dev` doesn't exist yet, choose a starting point and create the branch from it.
+## Prepare the project overview
 
-## Workflow
+1. Use the preceding discussion and any notes the owner supplied. Ask for the discussion or a summary if neither is available. Use the latest agreed decisions and record unresolved choices, conflicts, and tentative ideas in **Open questions, decisions, and references**.
+2. Read the [project overview template](context/project-overview.md). Fill its applicable sections with the project's goals, audience, MVP scope, flows, domain rules, and agreed stack. Preserve the headings. Use `N/A` for inapplicable sections and record missing decisions as open questions.
+3. Write only `context/project-overview.md` in the owner's project workspace or designated local copy of the template. If that project already has an overview, update it with the agreed decisions and preserve existing details that still apply. Treat the linked repository as the template source. If the owner has provided only a repository URL and no writable destination, return the completed Markdown so they can save it as `context/project-overview.md`.
 
-| Command | Result |
-| --- | --- |
-| `feature plan` | The agent turns the overview into feature specs in `context/features/`. You can narrow the scope by asking it to "write the specs for milestone M1," for example. |
-| `feature load export-report` | The agent reads the specified spec and records its goals in `context/current-feature.md`. |
-| `feature start` | The agent creates a work branch from `dev` and starts implementation. |
-| `feature test`, `feature review` | The agent tests or reviews the implementation. |
-| `/explain` or `feature explain` | The agent explains what the feature does and how the main changes work. |
-| `feature complete` | The agent verifies and commits the work, then merges the work branch into local `dev`. |
+Treat [AGENTS.md](AGENTS.md), [coding-standards.md](context/coding-standards.md), [current-feature.md](context/current-feature.md), and [skills/](skills/) as shared workflow files. Product decisions belong in the overview.
 
-Once the specs are ready, commit them on `dev` so `load` can use that version. The template includes `current-feature.md`, and the agent updates it as work progresses.
+## Recommend optional standards
 
-Merging into `main` requires a separate, explicit request, such as "Merge `dev` into `main` now." Pushing also requires a separate request.
+Inspect [context/optional/](context/optional/) and choose guides that match the project's agreed stack and targets. For each recommendation, give the source path, the destination directly under the project's `context/` directory, and a short reason it applies. For example, recommend [web-ui-standards.md](context/optional/web-ui-standards.md) for a project that renders HTML in a browser, including HTML generated from JSX or templates.
 
-## Use with different tools
+The owner copies the selected files. Under **Additional coding standards** in the overview, link guides already present in the project and identify the target when several targets share a repository. Mark recommendations awaiting a copy as pending and use `N/A` when no guides apply.
 
-If your tool doesn't read `AGENTS.md` automatically, start with "Read `AGENTS.md` and run `feature plan`." You can request any action in a regular message. Slash command support depends on the tool.
+## Hand off for review
 
-If your Claude Code setup only reads `CLAUDE.md`, add the following reference to `AGENTS.md` in that file. [Claude Code documentation](https://code.claude.com/docs/en/memory#share-one-file-with-other-coding-tools)
-
-```markdown
-@AGENTS.md
-```
+Report the overview path or provide its Markdown, summarize the remaining decisions, and list the recommended guides. Stop there for the owner's review. After the overview is agreed, use `feature plan` when the owner requests feature specs. Follow [AGENTS.md](AGENTS.md) and the [feature workflow](skills/feature/SKILL.md) for implementation.

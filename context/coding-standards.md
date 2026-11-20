@@ -1,4 +1,4 @@
-# Web app coding standards
+# Shared coding standards
 
 These rules apply across projects. Use [the project overview](project-overview.md) for product requirements and chosen technologies. Use the repository's manifests, lockfile, scripts, and CI for installed versions and runnable checks.
 
@@ -13,9 +13,9 @@ These rules apply across projects. Use [the project overview](project-overview.m
 ## UI
 
 - Follow the existing design system and tokens. Consult [the screenshot references](screenshots/) for relevant ideas about visual hierarchy, composition, and density. Adapt those ideas to the product. Use the spec for interactions.
-- Use semantic elements, label interactive controls, and support keyboard navigation with visible focus. Keep content usable in the supported viewports and text directions.
+- Use controls suited to the target platform. Provide accessible names and support the expected input methods with visible focus where applicable. Keep content usable at the supported screen sizes and text directions.
 - Cover relevant loading, empty, success, and failure states. Make errors actionable and keep user input when a failed action can be retried.
-- For UI changes, run the app and verify the affected flow when the environment permits. Check representative viewport sizes and states named in the spec.
+- For UI changes, run the app and verify the affected flow when the environment permits. Check representative screen sizes and applicable states from the spec. Verify the input and focus behavior of changed controls.
 
 ## Data and server boundaries
 

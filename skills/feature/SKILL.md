@@ -1,6 +1,6 @@
 ---
 name: feature
-description: Plan web app features from the project overview, load a spec, implement it on a work branch, test, review, explain, or complete a local dev merge.
+description: Use for web app feature or fix workflow requests to plan, load, start or resume, test, review, explain, or complete work recorded in context/current-feature.md.
 ---
 
 # Feature workflow
@@ -17,11 +17,11 @@ Read `AGENTS.md`, `context/coding-standards.md`, and `context/current-feature.md
 | [explain](actions/explain.md) | Explain the changes and decisions on request |
 | [complete](actions/complete.md) | Record completion and merge the work branch into local dev |
 
-Treat `/explain` as a request for `explain`. If the action is omitted, report the active spec and available actions. `load`, `start`, and `complete` are separate requests. Interpret file paths from the repository root unless a link is relative to its document.
+Treat `/explain` as a request for `explain`. If a feature workflow request leaves the action unclear, report the active spec and available actions. `load`, `start`, and `complete` are separate requests. Interpret file paths from the repository root unless a link is relative to its document.
 
 ## Active record
 
-Keep the headings stable in `context/current-feature.md`.
+Keep the section headings and their comments in `context/current-feature.md`. Use the goal checklist for verification results and `Notes` for any evidence or blockers needed when resuming.
 
 | State | Status | Spec | Branch |
 | --- | --- | --- | --- |

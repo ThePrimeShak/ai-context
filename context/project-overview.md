@@ -85,6 +85,7 @@ manifest or lockfile for exact installed versions. -->
 
 - Example data flow: {{REQUEST_TO_RESULT}}
 - Architecture boundary to protect: {{BOUNDARY_AND_REASON}}
+- Additional coding standards: {{LINKS_TO_APPLICABLE_GUIDES_OR_NA}}
 
 ## Integrations and operations
 
