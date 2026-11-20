@@ -1,11 +1,11 @@
 # Web app repository instructions
 
-The owner reviews the work and needs to understand it before accepting it. This file defines how the agent and the owner work together. The feature skill supplies the action steps.
+This file defines how the agent and the owner work together. The feature skill supplies the action steps.
 
 ## 1. Read first
 
 1. Read [the project overview](context/project-overview.md) for product behavior, domain rules, and architecture. Read [the coding standards](context/coding-standards.md) for the shared web app conventions.
-2. Read [the active feature](context/current-feature.md), its linked spec, and the spec's explanation topics. Read the relevant [feature action](skills/feature/SKILL.md).
+2. Read [the active feature](context/current-feature.md) and its linked spec when one is active. Read the relevant [feature action](skills/feature/SKILL.md).
 3. Check the project's README, manifests, and nearby implementation before editing. Follow instructions scoped to the paths you touch.
 
 Treat the overview as authoritative for agreed product behavior. If the code diverges from a domain rule, show the discrepancy to the owner before changing the rule. Update the overview in the same change when approved work changes a documented feature, architecture decision, or rule. If setup instructions are stale, check the real commands and update the affected documentation.
@@ -27,11 +27,11 @@ Keep changes in the spec. When an official API or unresolved requirement conflic
 ## 3. Feature workflow
 
 - **Plan.** On request, turn the agreed overview into actual specs in [context/features/](context/features/) or fix specs in [context/fixes/](context/fixes/). Use kebab-case IDs. A plain-language feature request can be turned into a spec through `plan`.
-- **Load.** Record one spec in `context/current-feature.md`. Check goals against the overview and surface gaps or contradictions. Show the goal summary and the owner's explanation topics, then wait for `start`.
+- **Load.** Record one spec in `context/current-feature.md`. Check goals against the overview and surface gaps or contradictions. Show the goal summary, then wait for `start`.
 - **Start.** Use the dedicated work branch. Before the first implementation edit, show the ordered goal checklist. Keep one goal in progress. After each goal, mark its result, give a short summary of what changed and why, and let the owner review it before continuing. For domain logic, write and show the tests before the implementation. For a bug, record the cause under `Notes`.
 - **Test and review.** Run the configured checks. Review the implementation against the project's review priorities and spec. Fix in-scope issues through the same approval process and repeat the affected checks.
-- **Explain.** Walk through the changed files and their data or control flow. Cover the spec's learning topics in plain language, with a small example for each when useful.
-- **Complete.** The owner checks the result, writes a two-sentence entry in [context/learning-log.md](context/learning-log.md), and requests `complete`. Remind the owner if the entry is missing. Append one entry to `History`, then clear the active fields. Keep the history chronological.
+- **Explain.** On request, describe the user-visible result and how the main changes work.
+- **Complete.** On the owner's `complete` request, append one entry to `History`, then clear the active fields. Keep the history chronological.
 
 The owner can request any action in plain language. The action files in `skills/feature/` use the same workflow across tools.
 
@@ -55,6 +55,6 @@ The owner can request any action in plain language. The action files in `skills/
 - Leave `main` alone during routine work. Check it out only for a separate, explicit owner request to merge into `main` when the source is clear. That request covers the merge. Pushing `main` requires its own instruction.
 - Write concise English commit messages in the form `type(scope): change`. Use `feat`, `fix`, `refactor`, `test`, `docs`, or `chore`. Add a short body only when the reason needs explanation. Omit agent attribution.
 
-## 7. Report and explain
+## 7. Report results
 
-Use short, direct sentences. If the owner writes in Persian, answer in Persian and keep technical terms as needed. For a fix, lead with the cause and the evidence. State which checks passed, failed, or could not run. When relevant, finish with the screens and states the owner should inspect and the concepts they should be able to explain.
+Use short, direct sentences. If the owner writes in Persian, answer in Persian and keep technical terms as needed. For a fix, lead with the cause and the evidence. State which checks passed, failed, or could not run. When relevant, finish with the screens and states the owner should inspect.

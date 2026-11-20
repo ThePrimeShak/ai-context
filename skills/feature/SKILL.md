@@ -14,10 +14,10 @@ Read `AGENTS.md`, `context/coding-standards.md`, and `context/current-feature.md
 | [start](actions/start.md) | Create or resume the work branch and implement the spec |
 | [test](actions/test.md) | Check the specified behavior |
 | [review](actions/review.md) | Review the changes against the spec and project requirements |
-| [explain](actions/explain.md) | Explain the changes and decisions |
+| [explain](actions/explain.md) | Explain the changes and decisions on request |
 | [complete](actions/complete.md) | Record completion and merge the work branch into local dev |
 
-If the action is omitted, report the active spec and available actions. `load`, `start`, and `complete` are separate requests. Interpret file paths from the repository root unless a link is relative to its document.
+Treat `/explain` as a request for `explain`. If the action is omitted, report the active spec and available actions. `load`, `start`, and `complete` are separate requests. Interpret file paths from the repository root unless a link is relative to its document.
 
 ## Active record
 

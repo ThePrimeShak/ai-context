@@ -1,31 +1,32 @@
-# قالب کار با ایجنت‌های کدنویسی برای وب‌اپ
+# A Template for Building Web Apps with Coding Agents
 
-## شروع یک پروژه
+## Start a project
 
-1. `AGENTS.md` و پوشه‌های `context/` و `skills/` رو در ریشه‌ی پروژه قرار بده. اگر فایل هم‌نام داری، دستورهای داخلش رو هنگام ادغام در نظر بگیر. این README راهنمای استفاده از بسته‌ست.
-2. فقط [project-overview.md](context/project-overview.md) رو برای پروژه پر کن. هدف، محدوده‌ی MVP، صفحات، قوانین دامنه و استک همون پروژه رو اینجا بنویس. [coding-standards.md](context/coding-standards.md) و بقیه دستورها آماده‌ی استفاده‌اند. ایجنت دستورهای واقعی اجرا و تست رو از خود ریپو پیدا می‌کنه.
-3. در صورت نیاز، اسکرین‌شات‌ها رو داخل [context/screenshots/](context/screenshots/) بذار. مثلاً از یه نمونه‌ی ساخته‌شده با v0.app عکس بگیر و در overview بنویس کدوم ایده‌ی بصری برات مهمه. ایجنت از عکس برای ترکیب‌بندی، سلسله‌مراتب و حس کلی کمک می‌گیره و طرح رو با پروژه تطبیق می‌ده.
-4. فایل‌های راه‌اندازی رو روی `dev` ثبت کن. اگر هنوز `dev` نداری، نقطه‌ی شروعش رو انتخاب کن و اونجا بساز.
+1. Copy `AGENTS.md`, `context/`, and `skills/` to the root of your project. If a file with the same name already exists, take its instructions into account when merging the files. Use this README as a guide to the template.
+2. Fill in [project-overview.md](context/project-overview.md) with your project's goal, MVP scope, pages, domain rules, and tech stack. The shared instructions, including [coding-standards.md](context/coding-standards.md), are ready to use. The agent finds the commands for running and testing the app in your repository.
+3. Add screenshots to [context/screenshots/](context/screenshots/) as needed. For example, take a screenshot of a v0.app prototype and note in the overview which visual ideas you want to borrow. The agent uses the screenshots as a reference for layout, visual hierarchy, and overall style, then adapts those ideas to your project.
+4. Commit the setup files on `dev`. If `dev` doesn't exist yet, choose a starting point and create the branch from it.
 
-## گردش کار
+## Workflow
 
-| دستور | نتیجه |
+| Command | Result |
 | --- | --- |
-| `feature plan` | ایجنت از روی overview فایل‌های واقعی فیچرها رو در `context/features/` می‌نویسه. می‌تونی محدوده بدی، مثلاً «فیچرهای M1 رو بنویس». |
-| `feature load export-report` | spec مشخص‌شده رو می‌خونه و هدف‌هاش رو در `context/current-feature.md` ثبت می‌کنه. |
-| `feature start` | برنچ اختصاصی رو از `dev` می‌سازه و پیاده‌سازی رو شروع می‌کنه. |
-| `feature test`، `feature review`، `feature explain` | ایجنت نتیجه رو تست، بررسی یا توضیح می‌ده. |
-| `feature complete` | کار رو بررسی و ثبت می‌کنه و برنچش رو در `dev` محلی مرج می‌کنه. |
+| `feature plan` | The agent turns the overview into feature specs in `context/features/`. You can narrow the scope by asking it to "write the specs for milestone M1," for example. |
+| `feature load export-report` | The agent reads the specified spec and records its goals in `context/current-feature.md`. |
+| `feature start` | The agent creates a work branch from `dev` and starts implementation. |
+| `feature test`, `feature review` | The agent tests or reviews the implementation. |
+| `/explain` or `feature explain` | The agent explains what the feature does and how the main changes work. |
+| `feature complete` | The agent verifies and commits the work, then merges the work branch into local `dev`. |
 
-بعد از ساخت specها، اون‌ها رو روی `dev` ثبت کن تا `load` بتونه از همون نسخه استفاده کنه. فایل `current-feature.md` از اول آماده‌ست و حین کار خود ایجنت به‌روزش می‌کنه.
+Once the specs are ready, commit them on `dev` so `load` can use that version. The template includes `current-feature.md`, and the agent updates it as work progresses.
 
-مرج به `main` فقط با دستور صریح و جداگانه‌ی خودت انجام می‌شه، مثلاً «الان `dev` رو در `main` مرج کن». پوش هم دستور جدا می‌خواد.
+Merging into `main` requires a separate, explicit request, such as "Merge `dev` into `main` now." Pushing also requires a separate request.
 
-## استفاده با ابزارهای مختلف
+## Use with different tools
 
-اگه ابزارت `AGENTS.md` رو خودکار نمی‌خونه، در پیام اول بگو «`AGENTS.md` رو بخون و `feature plan` رو اجرا کن». دستورها به صورت پیام معمولی هم کار می‌کنن. دستور اسلش به قابلیت ابزارت بستگی داره.
+If your tool doesn't read `AGENTS.md` automatically, start with "Read `AGENTS.md` and run `feature plan`." You can request any action in a regular message. Slash command support depends on the tool.
 
-در Claude Code، اگر تنظیماتت فقط `CLAUDE.md` رو می‌خونه، می‌تونی داخل اون فایل به `AGENTS.md` ارجاع بدی. [راهنمای Claude Code](https://code.claude.com/docs/en/memory#share-one-file-with-other-coding-tools)
+If your Claude Code setup only reads `CLAUDE.md`, add the following reference to `AGENTS.md` in that file. [Claude Code documentation](https://code.claude.com/docs/en/memory#share-one-file-with-other-coding-tools)
 
 ```markdown
 @AGENTS.md
