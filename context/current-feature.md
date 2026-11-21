@@ -13,10 +13,10 @@ Not Started
 <!-- Leave blank until start, then record the feature/<id> or fix/<id> work branch. -->
 
 ## Goals
-<!-- Copy the loaded spec's acceptance criteria here and mark each goal as verified when checked. -->
+<!-- Copy the loaded spec's acceptance criteria as checklist items and check off a goal when evidence verifies it. -->
 
 ## Notes
-<!-- Record scope, dependencies, decisions, verification details, and the cause of a bug when applicable. -->
+<!-- Record scope, dependencies, decisions, verification results, the goal awaiting owner review, and the cause of a bug when applicable. -->
 
 ## History
 <!-- Append one entry per completed spec with its ID and outcome, in chronological order. -->

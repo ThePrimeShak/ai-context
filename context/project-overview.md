@@ -22,7 +22,8 @@ outcome looks like. Use a real scenario. -->
 ## Scope and roadmap
 
 <!-- Describe visible capabilities and give each milestone a completion
-condition. Link feature specs as they are written. -->
+condition. Use numeric milestone IDs such as M0 and M1 for feature planning.
+Link feature specs as they are written. -->
 
 - MVP: {{CAPABILITIES_AND_BOUNDARIES}}
 - After the MVP: {{DEFERRED_CAPABILITIES}}

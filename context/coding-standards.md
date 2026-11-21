@@ -25,7 +25,7 @@ These rules apply across projects. Use [the project overview](project-overview.m
 
 ## Verification
 
-- Discover commands in the project README, manifests, and CI. Use the package manager indicated by the repo. Consult documentation for the installed version when a command or API is uncertain.
+- Discover commands in the project README, manifests, and CI. Use the package manager indicated by the repo. Follow the Context7 and version checks in [AGENTS.md](../AGENTS.md) when writing code, including tests and scripts, or installing packages.
 - Link tests to the acceptance criteria and [domain rules](project-overview.md#domain-rules). Cover relevant success, boundary, failure, and permission cases. Use test data and configured test environments.
 - Before `complete`, run the checks required by the spec and the project's relevant configured checks, such as lint, type check, test, and build. Execute a check only when the repo defines it or a documented equivalent.
 - Report the commands and actual results. Call out unavailable checks and what remains for manual verification.

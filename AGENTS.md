@@ -26,7 +26,7 @@ Keep changes in the spec. When an official API or unresolved requirement conflic
 
 ## 3. Feature workflow
 
-- **Plan.** On request, turn the agreed overview into actual specs in [context/features/](context/features/) or fix specs in [context/fixes/](context/fixes/). Use kebab-case IDs. A plain-language feature request can be turned into a spec through `plan`.
+- **Plan.** On request, turn the agreed overview into actual specs in [context/features/](context/features/) or fix specs in [context/fixes/](context/fixes/). Name new feature specs by milestone, sequence, and kebab-case slug, for example `m0-01-baseline-check.md`. Follow the [planning action](skills/feature/actions/plan.md) for numbering and fix specs.
 - **Load.** Record one spec in `context/current-feature.md`. Check goals against the overview and surface gaps or contradictions. Show the goal summary, then wait for `start`.
 - **Start.** Use the dedicated work branch. Before the first implementation edit, show the ordered goal checklist. Keep one goal in progress. After each goal, mark its result, give a short summary of what changed and why, and let the owner review it before continuing. For domain logic, write and show the tests before the implementation. For a bug, record the cause under `Notes`.
 - **Test and review.** Run the configured checks. Review the implementation against the project's review priorities and spec. Fix in-scope issues through the same approval process and repeat the affected checks.
