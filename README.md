@@ -8,13 +8,13 @@ ai-context is a reusable template for planning and building web apps with a codi
 
 1. Discuss your idea with Codex or another coding agent. Start with the problem, who has it, what belongs in the MVP, and any stack choices you've already made.
 2. Share this repository in the same conversation. A short prompt like the one below points the agent to the setup guide. If you start a new conversation, include a summary of your decisions.
-3. Review the overview and the recommended coding guides. With access to your project folder, the agent writes `context/project-overview.md` there. Without a writable project folder, it returns the Markdown for you to save. Open decisions go in **Open questions, decisions, and references**.
+3. Review the overview, setup summary, and recommended coding guides. With access to your project folder, the agent writes `context/project-overview.md` and prepares the shared workflow files and `.gitignore`. Without a writable project folder, it returns the overview as Markdown and gives you the setup checklist. Open decisions go in **Open questions, decisions, and references**.
 
-> Use https://github.com/ThePrimeShak/ai-context and the decisions from our conversation to prepare my project overview. Follow the agent project setup guide.
+> Use https://github.com/ThePrimeShak/ai-context and the decisions from our conversation to prepare my project overview and workspace. Follow the agent project setup guide.
 
 ## Set up your project repository
 
-Copy the following paths from this template to the same locations in your project. If your project already has an instruction file, review how its rules fit before merging the instructions.
+These paths go in the same locations in your project. The agent adds missing files when it can write to the project. You can also copy them manually. If an existing `AGENTS.md` needs links to the shared workflow, the agent adds those links and preserves the project's rules.
 
 | Path | What it does |
 | --- | --- |
@@ -25,7 +25,7 @@ Copy the following paths from this template to the same locations in your projec
 | [context/features/](context/features/), [context/fixes/](context/fixes/), and [context/screenshots/](context/screenshots/) | Hold feature specs, fix specs, and optional visual references. |
 | [skills/feature/](skills/feature/) | Contains the instructions for each feature action. |
 
-When you ask the agent to prepare your overview, it updates only `context/project-overview.md`. Keep the shared workflow files as the baseline. The agent updates specs and the active feature record later as you use the workflow.
+The overview holds your product decisions. Keep the shared workflow files as the baseline. The agent updates specs and the active feature record later as you use the workflow. Keep these team files in Git and use `.gitignore` for private files, local state, and generated output for your stack. [Version control rules](context/coding-standards.md#version-control-and-generated-files)
 
 Choose the relevant guides from [context/optional/](context/optional/). Copy each selected file directly into your project's `context/` folder and link it under **Additional coding standards** in `project-overview.md`. For example, copy [web-ui-standards.md](context/optional/web-ui-standards.md) for a browser UI, including one built with JSX. If a recurring coding or verification need has no suitable guide, the agent can propose one and write it in your project after you approve. Use `N/A` when no guides apply.
 
@@ -33,9 +33,13 @@ Choose the relevant guides from [context/optional/](context/optional/). Copy eac
 
 The coding workflow in [AGENTS.md](AGENTS.md) requires Context7 before code changes and package installs. For Codex, merge the Context7 server entry from the [MCP example](context/codex-mcp.toml) into `.codex/config.toml` in your trusted project. From that project, run `codex mcp login context7` and check that `codex mcp list` includes `context7`. To confirm the connection, ask the agent to look up documentation for a library you use. The example also includes a read-only Neon entry for projects that use Neon. [Codex MCP setup](https://developers.openai.com/codex/mcp)
 
+## Create visual references
+
+For projects with a browser UI, the agent asks about visual preferences such as palette, theme, and layout. After you confirm the direction, it gives you a complete prompt to paste into [v0.app](https://v0.app/). Capture the screens you want to use as references, save them in `context/screenshots/`, and tell the agent what you want to borrow from each one. You can also proceed without a prototype. [Visual reference workflow](docs/project-setup.md#prepare-visual-references-with-v0)
+
 ## Plan and build a feature
 
-After reviewing the overview, commit the setup files on your project's local `dev` branch. If `dev` does not exist, create it from the intended starting point. Request the actions below in plain language as you need them. The [feature workflow](skills/feature/SKILL.md) defines the details.
+When the agent delivers the overview, it tells you what to review and how to start feature planning. After reviewing the overview, commit the setup files on your project's local `dev` branch and ask for `feature plan`. If `dev` does not exist, create it from the intended starting point. Request the other actions in plain language as you need them. The [feature workflow](skills/feature/SKILL.md) defines the details.
 
 Feature specs in `context/features/` are named by milestone, sequence, and a short kebab-case slug. For example, `m0-01-baseline-check.md` is the first spec in `M0`, and `m1-02-date-only-conversion.md` is the second in `M1`. Numbering starts at `01` in each milestone. To load a spec, use its full filename stem.
 

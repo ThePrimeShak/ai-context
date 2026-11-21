@@ -10,6 +10,13 @@ These rules apply across projects. Use [the project overview](project-overview.m
 - Prefer small changes with clear names and one responsibility per function or component. Add a dependency or abstraction when the task has a concrete need for it.
 - For a fix, trace the cause, test the corrected behavior, and keep unrelated cleanup outside the change.
 
+## Version control and generated files
+
+- Track `AGENTS.md`, the shared feature instructions in `skills/feature/`, and team context under `context/`. This includes the overview, coding guides, active feature record, specs, and screenshots selected as design references. Narrow conflicting ignore rules or add a targeted exception when an existing rule hides these files, such as a blanket `context/` rule or a global image extension rule.
+- Keep the existing `.gitignore` rules and add entries for local files and generated output used by the actual stack. Common examples include `node_modules/`, `.next/`, `dist/`, `__pycache__/`, `.venv/`, `coverage/`, and browser test output such as `playwright-report/` or `test-results/`. Keep temporary captures and tool logs out of `context/screenshots/`.
+- Ignore private environment files, credentials, and machine-local editor or agent state. If you use `.env` and `.env.*` rules, add exceptions for sanitized examples such as `!.env.example`. Keep dependency lockfiles and intentionally shared tooling configuration tracked. When `.codex/` or `.agents/` contains both shared files and local state, ignore the local files or subdirectories specifically. A project-approved `.codex/config.toml` or `.agents/skills/` can be shared when it contains no secrets.
+- Use `git check-ignore --no-index` on representative local artifacts and team paths to verify the rules. If a private file is already tracked, report the path without opening it or changing Git history.
+
 ## UI
 
 - Follow the existing design system and tokens. Consult [the screenshot references](screenshots/) for relevant ideas about visual hierarchy, composition, and density. Adapt those ideas to the product. Use the spec for interactions.

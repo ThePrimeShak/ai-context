@@ -61,3 +61,5 @@ The owner can request any action in plain language. For feature workflow request
 ## 7. Report results
 
 Use short, direct sentences. If the owner writes in Persian, answer in Persian and keep technical terms as needed. For a fix, lead with the cause and the evidence. State which checks passed, failed, or could not run. When relevant, finish with the screens and states the owner should inspect.
+
+At a workflow handoff, state the next step, what it will do, and the request or approval the owner needs to give before it starts. Continue any work already authorized for the current action.
