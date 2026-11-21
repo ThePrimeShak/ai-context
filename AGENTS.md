@@ -26,6 +26,8 @@ Keep changes in the spec. When an official API or unresolved requirement conflic
 
 ## 3. Feature workflow
 
+Treat product ideas, repository review, and requests to prepare `context/project-overview.md` as pre-implementation work. For an overview-only request, write only that file in the specified project and stop for review. Workspace setup, feature planning, and implementation each require an explicit request. Start implementation after a spec is loaded and the owner asks to start it.
+
 - **Plan.** On request, turn the agreed overview into actual specs in [context/features/](context/features/) or fix specs in [context/fixes/](context/fixes/). Name new feature specs by milestone, sequence, and kebab-case slug, for example `m0-01-baseline-check.md`. Follow the [planning action](skills/feature/actions/plan.md) for numbering and fix specs.
 - **Load.** Record one spec in `context/current-feature.md`. Check goals against the overview and surface gaps or contradictions. Show the goal summary, then wait for `start`.
 - **Start.** Use the dedicated work branch. Before the first implementation edit, show the ordered goal checklist. Keep one goal in progress. After each goal, mark its result, give a short summary of what changed and why, and let the owner review it before continuing. For domain logic, write and show the tests before the implementation. For a bug, record the cause under `Notes`.

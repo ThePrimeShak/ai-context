@@ -4,17 +4,19 @@ ai-context is a reusable template for planning and building web apps with a codi
 
 **Using this repo after discussing an idea with an agent?** Start with the [agent project setup guide](docs/project-setup.md).
 
+**Asking for an overview only?** The agent reads this template and writes only `context/project-overview.md` in your target project. Workspace setup, feature planning, and implementation each require an explicit request.
+
 ## From idea to project overview
 
 1. Discuss your idea with Codex or another coding agent. Start with the problem, who has it, what belongs in the MVP, and any stack choices you've already made.
 2. Share this repository in the same conversation. A short prompt like the one below points the agent to the setup guide. If you start a new conversation, include a summary of your decisions.
-3. Review the overview, setup summary, and recommended coding guides. With access to your project folder, the agent writes `context/project-overview.md` and prepares the shared workflow files and `.gitignore`. Without a writable project folder, it returns the overview as Markdown and gives you the setup checklist. Open decisions go in **Open questions, decisions, and references**.
+3. Review the overview and recommended coding guides. With access to your project folder, the agent writes `context/project-overview.md` there. Without a writable project folder, it returns the completed Markdown. Open decisions go in **Open questions, decisions, and references**.
 
-> Use https://github.com/ThePrimeShak/ai-context and the decisions from our conversation to prepare my project overview and workspace. Follow the agent project setup guide.
+> Read https://github.com/ThePrimeShak/ai-context and use the decisions from our conversation to create only `context/project-overview.md` in my project. Follow the overview instructions in the agent project setup guide and stop for my review.
 
 ## Set up your project repository
 
-These paths go in the same locations in your project. The agent adds missing files when it can write to the project. You can also copy them manually. If an existing `AGENTS.md` needs links to the shared workflow, the agent adds those links and preserves the project's rules.
+When you're ready, ask the agent to set up the workspace. These paths go in the same locations in your project. The agent adds missing files and applies the `.gitignore` rules when it can write to the project. You can also copy them manually. If an existing `AGENTS.md` needs links to the shared workflow, the agent adds those links and preserves the project's rules.
 
 | Path | What it does |
 | --- | --- |
