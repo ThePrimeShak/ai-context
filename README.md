@@ -16,7 +16,7 @@ ai-context is a reusable template for planning and building web apps with a codi
 
 ## Set up your project repository
 
-When you're ready, ask the agent to set up the workspace. These paths go in the same locations in your project. The agent adds missing files and applies the `.gitignore` rules when it can write to the project. You can also copy them manually. If an existing `AGENTS.md` needs links to the shared workflow, the agent adds those links and preserves the project's rules.
+When you're ready, ask the agent to set up the workspace. These paths go in the same locations in your project. The agent adds missing files and applies the `.gitignore` rules when it can write to the project. You can also copy them manually. If you already have an `AGENTS.md`, the agent preserves its rules and tool-generated sections, adds the missing links, and puts any missing shared workflow rules in a separate linked file.
 
 | Path | What it does |
 | --- | --- |
@@ -29,11 +29,11 @@ When you're ready, ask the agent to set up the workspace. These paths go in the 
 
 The overview holds your product decisions. Keep the shared workflow files as the baseline. The agent updates specs and the active feature record later as you use the workflow. Keep these team files in Git and use `.gitignore` for private files, local state, and generated output for your stack. [Version control rules](context/coding-standards.md#version-control-and-generated-files)
 
-Choose the relevant guides from [context/optional/](context/optional/). Copy each selected file directly into your project's `context/` folder and link it under **Additional coding standards** in `project-overview.md`. For example, copy [web-ui-standards.md](context/optional/web-ui-standards.md) for a browser UI, including one built with JSX. If a recurring coding or verification need has no suitable guide, the agent can propose one and write it in your project after you approve. Use `N/A` when no guides apply.
+Choose the relevant guides from [context/optional/](context/optional/). Copy them directly into your project's `context/` folder yourself or ask the agent to copy them. Link installed guides under **Additional coding standards** in `project-overview.md`. For example, use [web-ui-standards.md](context/optional/web-ui-standards.md) for a browser UI, including one built with JSX. If a recurring coding or verification need has no suitable guide, the agent can propose one and write it in your project after you approve. Use `N/A` when no guides apply.
 
 ### Configure Context7
 
-The coding workflow in [AGENTS.md](AGENTS.md) requires Context7 before code changes and package installs. For Codex, merge the Context7 server entry from the [MCP example](context/codex-mcp.toml) into `.codex/config.toml` in your trusted project. From that project, run `codex mcp login context7` and check that `codex mcp list` includes `context7`. To confirm the connection, ask the agent to look up documentation for a library you use. The example also includes a read-only Neon entry for projects that use Neon. [Codex MCP setup](https://developers.openai.com/codex/mcp)
+The coding workflow in [AGENTS.md](AGENTS.md) requires Context7 before code changes and package installs. You can prepare the overview and feature specs while configuring it. For Codex, merge the Context7 server entry from the [MCP example](context/codex-mcp.toml) into `.codex/config.toml` in your trusted project. From that project, run `codex mcp login context7` and check that `codex mcp list` includes `context7`. To confirm the connection, ask the agent to look up documentation for a library you use. The example also includes a read-only Neon entry for projects that use Neon. [Codex MCP setup](https://developers.openai.com/codex/mcp)
 
 ## Create visual references
 

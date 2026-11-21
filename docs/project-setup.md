@@ -12,10 +12,12 @@ Use this guide when the owner shares `ai-context` after discussing a project ide
 
 If the owner asks you to review the repository so you can create an overview, follow the overview scope. During overview preparation and workspace setup, leave app code, scaffolding, dependencies, builds, and Git state alone. A product description or repo link does not authorize implementation.
 
+Use the deliverable and scope agreed in the conversation to interpret a general request to apply the template. If it remains unclear whether the owner wants an overview or workspace setup as well, ask one focused question before editing. An explicit workspace setup request includes the shared files listed below.
+
 ## Prepare the overview
 
 1. Read the preceding discussion and any notes the owner provided. Use the latest agreed decisions. Ask for the discussion or a summary if neither is available.
-2. Read the [project overview template](../context/project-overview.md). Preserve its headings and fill the applicable sections with the project's goals, audience, MVP scope, flows, domain rules, and agreed stack. Record unresolved choices, conflicts, and tentative ideas under **Open questions, decisions, and references**. Use `N/A` for inapplicable sections.
+2. Read the [project overview template](../context/project-overview.md). Preserve its headings and fill the applicable sections with the project's goals, audience, MVP scope, flows, domain rules, and agreed stack. Walk through the first usable flow from a new user's starting state. Record unresolved choices, conflicts, and tentative ideas under **Open questions, decisions, and references**. For each decision that blocks a milestone, identify the affected flow, such as how a new user gets access when the first milestone requires sign-in. Use `N/A` for inapplicable sections.
 3. Write only `context/project-overview.md` in the owner's project workspace or designated copy. When an overview already exists, keep details that still apply and update it with agreed decisions. If there is no writable project destination, return the completed Markdown and its intended path.
 4. Report the overview and ask the owner to review it. You may recommend optional guides or explain later steps in the response. For an overview-only request, stop after this handoff.
 
@@ -24,7 +26,9 @@ If the owner asks you to review the repository so you can create an overview, fo
 Follow this section only when the owner explicitly requests workspace setup.
 
 1. In the project destination, copy any missing shared files from the paths listed in [the README](../README.md#set-up-your-project-repository). Include `AGENTS.md`, `context/coding-standards.md`, `context/current-feature.md`, `skills/feature/`, and the `context/features/`, `context/fixes/`, and `context/screenshots/` directories. Treat the shared template as the source and preserve the shared instructions, specs, and active feature record already in the project.
-2. If the project already has an `AGENTS.md`, preserve its project-specific rules and add any missing references to the overview, coding standards, active feature record, and feature workflow. If a template rule conflicts with an existing rule, surface the conflict and ask the owner how to resolve it.
+2. If the project already has an `AGENTS.md`, preserve its project-specific rules and tool-generated sections. Add a short section with only the missing references to the overview, coding standards, active feature record, and feature workflow.
+   - If the shared workflow rules are neither present nor linked, put them in `context/agent-workflow.md` and add a direction to read it from `AGENTS.md`. Use the template's `AGENTS.md` as the source. Rebase its relative Markdown links to the new file and verify that they resolve. Keep paths shown as code relative to the project root.
+   - Reuse an existing shared workflow file or reference where it already covers the same rules. If a template rule conflicts with an existing rule, surface the conflict and ask the owner how to resolve it.
 3. Create or update the destination's `.gitignore` using [the version control rules](../context/coding-standards.md#version-control-and-generated-files). Verify that team context remains trackable and that local output and private files for the actual stack are ignored.
 
 If there is no writable project destination, give the owner the files to copy and any applicable `.gitignore` entries. Provide the completed overview as Markdown if they requested it. Feature specs, app code, tool setup, and Git actions belong to later requests.
@@ -33,7 +37,9 @@ If there is no writable project destination, give the owner the files to copy an
 
 Inspect [context/optional/](../context/optional/) and match the guides to the agreed stack and what each target produces. Give the owner the source path, the destination directly under the project's `context/` directory, and a short reason for each suggestion. For example, a browser UI that renders HTML from JSX can use [web-ui-standards.md](../context/optional/web-ui-standards.md) at `context/web-ui-standards.md`.
 
-The owner copies the selected template files. If neither the template's optional guides nor the project's existing documentation covers a recurring coding or verification need, propose a project-specific guide. Explain what it would cover, why the project needs it, and where it would go. Ask for explicit approval and wait for the owner's reply before drafting or creating it.
+The owner can copy the selected template files or ask you to do it. Copy a guide during workspace setup when the owner has requested it or authorized you to choose and copy relevant guides. Preserve existing guides in the destination. For overview-only work, suggest guides in the reply and link existing guides in the overview.
+
+If neither the template's optional guides nor the project's existing documentation covers a recurring coding or verification need, propose a project-specific guide. Explain what it would cover, why the project needs it, and where it would go. Ask for explicit approval and wait for the owner's reply before drafting or creating it.
 
 After approval, create a concise Markdown guide under the owner's project `context/` directory as a separate documentation task. Base it on the agreed stack, the project's conventions, and version-matched documentation where applicable. If there is no writable project destination, provide the guide as Markdown with its intended path.
 
@@ -53,4 +59,6 @@ Skip the visual reference step for projects without a browser UI or when the own
 
 Report the overview path or provide the completed Markdown. Summarize the files prepared, open decisions, and optional guides awaiting a copy or approval. If the visual reference workflow is in scope and preferences are still open, ask about them in this handoff.
 
-Always explain the next step after delivering the overview. Ask the owner to review it and explain how to request workspace setup if the shared files are missing. Once they approve the overview and have the setup files on local `dev`, they can say `feature plan` to turn the agreed roadmap into ordered Markdown specs under `context/features/`. If a visual reference is still pending, say which specs can be planned now and which decisions need the reference. Wait for an explicit planning request before writing specs. Follow [AGENTS.md](../AGENTS.md) and the [feature workflow](../skills/feature/SKILL.md) for subsequent work.
+Always explain the next step after delivering the overview. Ask the owner to review it and explain how to request workspace setup if the shared files are missing. If the destination is a Git repository, check whether local `dev` exists and tell the owner what needs to be recorded there before planning. Once the overview is approved and the setup files are on `dev`, the owner can say `feature plan` to turn the agreed roadmap into ordered Markdown specs under `context/features/`. Identify which specs can proceed and which depend on an open decision or visual reference. Wait for an explicit planning request before writing specs.
+
+During workspace setup, report whether Context7 is usable for this project. If it is missing or the connection is unverified, point the owner to [Configure Context7](../README.md#configure-context7). Keep that separate from the prerequisites for documentation-only planning. Follow [AGENTS.md](../AGENTS.md) and the [feature workflow](../skills/feature/SKILL.md) for subsequent work.
