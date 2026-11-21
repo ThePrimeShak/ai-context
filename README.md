@@ -6,6 +6,8 @@ ai-context is a reusable template for planning and building web apps with a codi
 
 **Asking for an overview only?** The agent reads this template and writes only `context/project-overview.md` in your target project. Workspace setup, feature planning, and implementation each require an explicit request.
 
+New project files, including the overview and specs, are written in English. The conversation can stay in your language, and the app can use any localized UI copy the project requires.
+
 ## From idea to project overview
 
 1. Discuss your idea with Codex or another coding agent. Start with the problem, who has it, what belongs in the MVP, and any stack choices you've already made.
@@ -37,17 +39,17 @@ The coding workflow in [AGENTS.md](AGENTS.md) requires Context7 before code chan
 
 ## Create visual references
 
-For projects with a browser UI, the agent asks about visual preferences such as palette, theme, and layout. After you confirm the direction, it gives you a complete prompt to paste into [v0.app](https://v0.app/). Capture the screens you want to use as references, save them in `context/screenshots/`, and tell the agent what you want to borrow from each one. You can also proceed without a prototype. [Visual reference workflow](docs/project-setup.md#prepare-visual-references-with-v0)
+For projects with a browser UI, the agent asks about visual preferences such as palette, theme, and layout after drafting the overview. After you confirm the direction, it gives you a complete prompt to paste into [v0.app](https://v0.app/). Save the selected screenshots in `context/screenshots/` and tell the agent what you want to borrow from each one. The agent reviews and links the files in the overview before offering to plan the specs. You can also use your own screenshots or explicitly choose to proceed without references. [Visual reference workflow](docs/project-setup.md#prepare-visual-references-with-v0)
 
 ## Plan and build a feature
 
-When the agent delivers the overview, it tells you what to review and how to start feature planning. After reviewing the overview, commit the setup files on your project's local `dev` branch and ask for `feature plan`. If `dev` does not exist, create it from the intended starting point. Request the other actions in plain language as you need them. The [feature workflow](skills/feature/SKILL.md) defines the details.
+After approving the overview and finishing the applicable visual reference step, commit the setup files and selected screenshots on your project's local `dev` branch. If `dev` does not exist, create it from the intended starting point. The agent then asks whether to start feature planning. Request `feature plan` when you're ready. The [feature workflow](skills/feature/SKILL.md) defines the other actions.
 
 Feature specs in `context/features/` are named by milestone, sequence, and a short kebab-case slug. For example, `m0-01-baseline-check.md` is the first spec in `M0`, and `m1-02-date-only-conversion.md` is the second in `M1`. Numbering starts at `01` in each milestone. To load a spec, use its full filename stem.
 
 | Request | What happens |
 | --- | --- |
-| `feature plan` | Generates specs from the approved overview. Record the specs on `dev` so the agent can load them. |
+| `feature plan` | Generates English specs from the approved overview and links relevant screenshot files in UI specs. Record the specs on `dev` so the agent can load them. |
 | `feature load m0-01-baseline-check` | Loads `context/features/m0-01-baseline-check.md` into the active feature record and waits for you to start. |
 | `feature start` | Creates or resumes the work branch. The agent pauses after each goal and continues when you confirm your review. |
 | `feature test` / `feature review` | Runs the relevant checks or reviews the changes against the spec. |
