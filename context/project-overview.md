@@ -48,7 +48,7 @@ Consider the applicable empty, loading, failure, and recovery states. -->
 - Design direction and responsive priorities: {{PLATFORMS_LAYOUTS_LANGUAGES_AND_ACCESSIBILITY}}
 - Visual references: {{SCREENSHOT_LINKS_UNDER_SCREENSHOTS_AND_WHAT_TO_BORROW_OR_PENDING_OR_NA}}
 
-Use screenshots for visual direction and adapt them to the product. Link each selected file from [screenshots/](screenshots/) and name the screen, state, or layout detail it illustrates. Use `Pending` while references are still being chosen, and `N/A` when the project has no browser UI or the owner explicitly chooses to proceed without them. Keep product behavior in the overview and specs.
+Use screenshots for visual direction and adapt them to the product. Link each selected file from [screenshots/](screenshots/) and name the screen, state, or layout detail it illustrates. Use `Pending` while references are still being chosen, including when the visual direction is decided. If the project has no browser UI, use `N/A` and state why. For browser UI, use `N/A` only when the owner explicitly asks to proceed without screenshots. Record what they approved and the scope it covers. Keep product behavior in the overview and specs.
 
 ## Domain rules
 
